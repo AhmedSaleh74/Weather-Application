@@ -23,11 +23,12 @@ class WeatherServices {
       final Map<String, dynamic> jsonData = response.data;
       weatherData.add(
         WeatherModel(
-          temp: '${jsonData['main']['temp']}°C',
+          temp: jsonData['main']['temp'],
           tempMin: '${jsonData['main']['temp_min']}°C',
           tempMax: '${jsonData['main']['temp_max']}°C',
           description: '${jsonData['weather'][0]['description']}',
           main: '${jsonData['weather'][0]['main']}',
+          icon: '${jsonData['weather'][0]['icon']}',
         ),
       );
     }

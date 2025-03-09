@@ -52,6 +52,7 @@ class _WeatherHomeState extends State<WeatherHome> {
                 ),
                 TextField(
                   controller: cityController,
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.location_city,
@@ -78,16 +79,19 @@ class _WeatherHomeState extends State<WeatherHome> {
                       final tempMax = weatherData[0].tempMax;
                       final description = weatherData[0].description;
                       final main = weatherData[0].main;
+                      final icon = weatherData[0].icon;
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => CityWeather(
-                              cityName: cityController.text,
-                              temp: temp,
-                              tempMin: tempMin,
-                              tempMax: tempMax,
-                              description: description,
-                              main: main),
+                            cityName: cityController.text,
+                            temp: temp,
+                            tempMin: tempMin,
+                            tempMax: tempMax,
+                            description: description,
+                            main: main,
+                            icon: icon,
+                          ),
                         ),
                       );
                     } else {
